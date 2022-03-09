@@ -9,4 +9,21 @@ L'output del prezzo finale va messo fuori in forma umana (con massimo due decima
 per indicare centesimi sul prezzo). Questo richiederà un minimo di ricerca.
 */
 
+// Input utente
+const kmPercorrenza = prompt('Quanti chilometri vuoi percorrere?');
+const etaPasseggero = prompt('Qual è la tua età?');
 
+// Calcolo prezzo standard
+let prezzoBiglietto = 0.21 * kmPercorrenza;
+
+// Applicazione dello sconto
+if (etaPasseggero < 18) {
+    // sconto 20%
+    prezzoBiglietto *= 0.8;
+} else if (etaPasseggero >= 65) {
+    // sconto 40%
+    prezzoBiglietto *= 0.6;
+}
+
+// Output
+document.getElementById('ticket-price').innerHTML = (Math.round(prezzoBiglietto * 100) / 100).toFixed(2);
